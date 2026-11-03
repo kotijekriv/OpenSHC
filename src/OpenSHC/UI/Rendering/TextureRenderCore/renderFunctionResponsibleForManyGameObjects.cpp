@@ -34,14 +34,16 @@ namespace UI {
         void TextureRenderCore::renderFunctionResponsibleForManyGameObjects(
             int drawX, int drawY, int imageWidth, int imageHeight, ushort* imageAddress)
         {
-            // Declaration order picks the frame slots the asm blocks address (measured, not semantic).
+            // The asm blocks address these by frame slot. MSVC lays out the locals of this unoptimised function by a
+            // hash of their names first and declaration order second, so both the names and the order below are
+            // what put every local in the original's slot (measured).
+            int oddColumn;
             int lineStride;
+            int heightMax;
             int heightStart;
-            int rowSkip;
-            int heightEnd;
-            int zoomColumn;
+            int lineTail;
+            void** streamRunHandlers = s_tgxStreamPixelHandlers;
             void** repeatedPixelHandlers = s_tgxRepeatedPixelHandlers;
-            void** streamPixelHandlers = s_tgxStreamPixelHandlers;
             if (imageHeight <= 0)
                 return;
 
@@ -50,30 +52,30 @@ namespace UI {
                 case OpenSHC::Rendering::Enums::RT_MAP_GAME:
                     DAT_TextureRenderCoreObject::instance.currentRenderSurface
                         = DAT_WindowAndDirectDraw::instance.surfacePointer_mapGame;
-                    rowSkip = 4056 * 2 - imageWidth * 2;
+                    lineTail = 4056 * 2 - imageWidth * 2;
                     lineStride = 4056 * 2;
                     heightStart = this->mapGameSurfaceHeightRange.start;
-                    heightEnd = this->mapGameSurfaceHeightRange.end;
+                    heightMax = this->mapGameSurfaceHeightRange.end;
                     break;
                 case OpenSHC::Rendering::Enums::RT_BUTTON_AND_ALPHA:
                     DAT_TextureRenderCoreObject::instance.currentRenderSurface
                         = AlphaAndButtonSurfaceObj::instance.surfacePtr;
-                    rowSkip = AlphaAndButtonSurfaceObj::instance.currentImageWidth * 2 - imageWidth * 2;
+                    lineTail = AlphaAndButtonSurfaceObj::instance.currentImageWidth * 2 - imageWidth * 2;
                     lineStride = AlphaAndButtonSurfaceObj::instance.currentImageWidth * 2;
                     heightStart = 0;
-                    heightEnd = imageHeight;
+                    heightMax = imageHeight;
                     break;
                 default:
                     DAT_TextureRenderCoreObject::instance.currentRenderSurface
                         = DAT_WindowAndDirectDraw::instance.surfacePointer_screenMenu;
-                    rowSkip = DAT_WindowAndDirectDraw::instance.byteSizeOfOneHorizontalLine - imageWidth * 2;
+                    lineTail = DAT_WindowAndDirectDraw::instance.byteSizeOfOneHorizontalLine - imageWidth * 2;
                     lineStride = DAT_WindowAndDirectDraw::instance.byteSizeOfOneHorizontalLine;
                     heightStart = this->screenMenuSurfaceHeightRange.start;
-                    heightEnd = this->screenMenuSurfaceHeightRange.end;
+                    heightMax = this->screenMenuSurfaceHeightRange.end;
                     break;
                 }
-                if (drawY + imageHeight > heightEnd) {
-                    imageHeight = imageHeight - (drawY + imageHeight - heightEnd);
+                if (drawY + imageHeight > heightMax) {
+                    imageHeight = imageHeight - (drawY + imageHeight - heightMax);
                     if (imageHeight <= 0)
                         return;
                 }
@@ -143,7 +145,7 @@ namespace UI {
                         je L_44d5ab
                         cmp al, 0x40
                         je L_44d597
-                        add edi, rowSkip
+                        add edi, lineTail
                         sub edx, 1
                         jg L_44d568
                         jmp L_44e372
@@ -1267,7 +1269,7 @@ namespace UI {
                         mov dword ptr [edi + 0x78], eax
                         mov eax, offset L_44e132
                         mov dword ptr [edi + 0x7c], eax
-                        mov edi, streamPixelHandlers
+                        mov edi, streamRunHandlers
                         mov eax, offset L_44d5b2
                         mov dword ptr [edi], eax
                         mov eax, offset L_44d5c0
@@ -1339,7 +1341,7 @@ namespace UI {
             } else {
                 DAT_TextureRenderCoreObject::instance.currentRenderSurface
                     = DAT_WindowAndDirectDraw::instance.surfacePointer_mapGame;
-                rowSkip = 4056 * 2;
+                lineTail = 4056 * 2;
                 lineStride = 4056 * 2;
                 heightStart = this->mapGameSurfaceHeightRange.start;
                 if (drawY + imageHeight > this->mapGameSurfaceHeightRange.end) {
@@ -1399,7 +1401,7 @@ namespace UI {
                         add edi, eax
                         xor eax, eax
                         xor ebx, ebx
-                        mov zoomColumn, ebx
+                        mov oddColumn, ebx
                         mov edx, imageHeight
                 L_44e445:
                         mov al, byte ptr [esi]
@@ -1413,7 +1415,7 @@ namespace UI {
                         je L_44e4d5
                         cmp al, 0x40
                         je L_44e4ad
-                        add edi, rowSkip
+                        add edi, lineTail
                         sub edx, 1
                         jle L_44e4fd
                 L_44e46a:
@@ -1440,20 +1442,20 @@ namespace UI {
                 L_44e497:
                         xor eax, eax
                         xor ebx, ebx
-                        mov zoomColumn, ebx
+                        mov oddColumn, ebx
                         sub edx, 1
                         jg L_44e445
                         jmp L_44e4fd
                 L_44e4a5:
                         add ecx, 1
-                        add zoomColumn, ecx
+                        add oddColumn, ecx
                         jmp L_44e445
                 L_44e4ad:
                         movzx eax, word ptr [esi]
                         add esi, 2
                         add ecx, 1
-                        mov ebx, zoomColumn
-                        add zoomColumn, ecx
+                        mov ebx, oddColumn
+                        add oddColumn, ecx
                 L_44e4bc:
                         test ebx, 1
                         jne L_44e4c8
@@ -1465,8 +1467,8 @@ namespace UI {
                         jmp L_44e445
                 L_44e4d5:
                         add ecx, 1
-                        mov ebx, zoomColumn
-                        add zoomColumn, ecx
+                        mov ebx, oddColumn
+                        add oddColumn, ecx
                 L_44e4de:
                         test ebx, 1
                         jne L_44e4ed
