@@ -21,16 +21,18 @@ namespace UI {
         BOOLEnum WindowAndDirectDraw::initializeDirectDraw()
         {
             if (this->pointerToIDirectDrawInterface == NULL) {
-                // The result of the emulation-only create is not checked by the original.
+                // Both creates are checked: the emulation-only branch jumps to the same result test.
+                HRESULT result;
                 if (MACRO_CALL(OpenSHC::Global_Func::TestOSVersion)() != 0) {
-                    DirectDrawCreate((GUID*)DDCREATE_EMULATIONONLY, &this->pointerToIDirectDrawInterface, NULL);
+                    result
+                        = DirectDrawCreate((GUID*)DDCREATE_EMULATIONONLY, &this->pointerToIDirectDrawInterface, NULL);
                     this->NOTSelfBufferOrWindowMode_0xf8 = TRUE;
                 } else {
-                    HRESULT const result = DirectDrawCreate(NULL, &this->pointerToIDirectDrawInterface, NULL);
+                    result = DirectDrawCreate(NULL, &this->pointerToIDirectDrawInterface, NULL);
                     this->NOTSelfBufferOrWindowMode_0xf8 = TRUE;
-                    if (result != DD_OK)
-                        return FALSE;
                 }
+                if (result != DD_OK)
+                    return FALSE;
             }
 
             DDCAPS caps;
@@ -153,15 +155,13 @@ namespace UI {
             // size of the map rendering surface
             desc.dwHeight = 2076;
             desc.dwWidth = 4056;
-            if (this->pointerToIDirectDrawInterface->CreateSurface(
-                    &desc, &this->directDrawOffscreenSurfacePointer_mapGame, NULL)
-                != DD_OK) {
+            LPDIRECTDRAWSURFACE* const mapGameSurface = &this->directDrawOffscreenSurfacePointer_mapGame;
+            if (this->pointerToIDirectDrawInterface->CreateSurface(&desc, mapGameSurface, NULL) != DD_OK) {
                 MACRO_CALL_MEMBER(OpenSHC::UI::Rendering::WindowAndDirectDraw_Func::releaseSurfacesAndDirectDraw, this)(
                     TRUE);
                 return FALSE;
             }
-            DAT_BinkControlState::instance.mapGameSurfaceType
-                = BinkDDSurfaceType(this->directDrawOffscreenSurfacePointer_mapGame);
+            DAT_BinkControlState::instance.mapGameSurfaceType = BinkDDSurfaceType(*mapGameSurface);
             this->surfDescBink_offSurfMapGame = desc;
             if (this->directDrawOffscreenSurfacePointer_mapGame->Lock(NULL, &desc, DDLOCK_WAIT, NULL) != DD_OK) {
                 MACRO_CALL_MEMBER(OpenSHC::UI::Rendering::WindowAndDirectDraw_Func::releaseSurfacesAndDirectDraw, this)(
