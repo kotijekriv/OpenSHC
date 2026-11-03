@@ -1,10 +1,11 @@
 // disable deprecation warnings for strcpy, strcat and sprintf
 #pragma warning(disable : 4996)
 
+#include "../WindowAndDirectDraw.func.hpp"
+
 #include "OpenSHC/IO/LowLevelMemory.func.hpp"
 #include "OpenSHC/IO/ResourceManager.func.hpp"
 #include "OpenSHC/OS.func.hpp"
-#include "OpenSHC/UI/Rendering/WindowAndDirectDraw.func.hpp"
 #include "OpenSHC/string-macros.hpp"
 
 #include "OpenSHC/Globals/DAT_LowLevelMemory.hpp"
