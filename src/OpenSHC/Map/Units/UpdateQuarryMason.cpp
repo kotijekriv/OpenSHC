@@ -81,7 +81,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field220_0x41bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x41bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 0x131;
@@ -104,7 +104,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field248_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x118;
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -125,7 +125,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field248_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x130;
                 DAT_UnitHasBecomeIdle::instance = 1;

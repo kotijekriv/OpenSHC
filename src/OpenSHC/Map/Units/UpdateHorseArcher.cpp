@@ -53,7 +53,7 @@ namespace Map {
         DAT_GameState::instance.playerDataArray[owner].countHorseArchers += 1;
         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gmIDUnk = 0xc2;
         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].isSelectable_OR_matchTime = 1;
-        DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field316_0x430 = 1;
+        DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x430 = 1;
         MACRO_CALL_MEMBER(OpenSHC::Map::Units::TribesState_Func::addUnitToNewTribe, DAT_TribesState::ptr)(
             DAT_CurrentUnitSlotID::instance);
         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].displayColorPlayerID = (short)owner;
@@ -262,7 +262,7 @@ namespace Map {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].attackAtTileX,
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].attackAtTileY);
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field163_0x2fc0
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x2fc0
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -273,7 +273,7 @@ namespace Map {
                     + 0x79 + DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame * 8;
             }
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field164_0x300c
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x300c
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -449,7 +449,7 @@ namespace Map {
             }
             // horse
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field163_0x2fc0
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x2fc0
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -461,7 +461,7 @@ namespace Map {
             }
             // rider
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field164_0x300c
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x300c
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -483,9 +483,9 @@ namespace Map {
         case OpenSHC::Map::Units::States::US_IDLEUnk:
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 5;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x2ac = 10;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].SA = 1;
-            if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field283_0x3f8 == 0
+            if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x3f8 == 0
                 && (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetingType
                         == OpenSHC::Map::Units::UIT_UNIT_ATTACK_UNIT
                     || DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetingType
@@ -494,7 +494,7 @@ namespace Map {
                         == OpenSHC::Map::Units::UIT_LIGHT_PITCH
                     || DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetingType
                         == OpenSHC::Map::Units::UIT_ATTACK_LAND)) {
-                DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field283_0x3f8 = 1;
+                DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x3f8 = 1;
                 DAT_UnitHasBecomeIdle::instance = 1;
             }
             // horse
@@ -575,7 +575,7 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 2;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field14_0x9fc
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x9fc
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber = 0x29a;

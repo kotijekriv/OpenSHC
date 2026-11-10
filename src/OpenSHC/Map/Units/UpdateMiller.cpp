@@ -59,9 +59,9 @@ namespace Map {
             // idling at the mill
             DAT_UnitsState::instance.units[unitID].animationSpeed = 2;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 1;
             DAT_UnitsState::instance.units[unitID].resourceToDeposit = 0;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_UnitsState::instance.units[unitID].stateBasedSpeed = 0;
             if (DAT_UnitsState::instance.units[unitID].substate == -1) {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::sitDownIfStanding, DAT_UnitsState::ptr)(unitID);
@@ -70,23 +70,23 @@ namespace Map {
             case 100:
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field290_0x5ba0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5ba0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 break;
             case 0x65:
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field291_0x5bc0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5bc0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 break;
             case 0x6b:
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field293_0x5c24[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5c24[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 break;
             case 0x6a:
             default:
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field292_0x5be0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5be0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 break;
             }
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {

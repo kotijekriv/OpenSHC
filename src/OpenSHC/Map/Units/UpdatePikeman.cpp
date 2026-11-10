@@ -301,7 +301,7 @@ namespace Map {
                 DAT_UnitsState::ptr)(unitID, DAT_UnitsState::instance.units[unitID].attackAtTileX,
                 DAT_UnitsState::instance.units[unitID].attackAtTileY);
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field42_0x11f8
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x11f8
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -481,7 +481,7 @@ namespace Map {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].y, OpenSHC::DE::SHCDE::FX_MOAT_DIG);
             }
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field44_0x1238
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x1238
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber
@@ -572,7 +572,7 @@ namespace Map {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].y, OpenSHC::DE::SHCDE::FX_MOAT_DIG);
             }
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field45_0x125c
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x125c
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber
@@ -625,7 +625,7 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].seated = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 2;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x2ac = 10;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].SA = 1;
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].closestEnemyMicroDistance < 400
                 && DAT_GameState::instance.playerDataArray[owner].totalEnemyUnitsCount != 0) {
@@ -643,7 +643,7 @@ namespace Map {
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 0x65) {
                     // sitting down
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field37_0x10c8
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x10c8
                               [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                     if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate = 0x6a;
@@ -656,7 +656,7 @@ namespace Map {
                 } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 0x6a) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].seated = 1;
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field38_0x10f4
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x10f4
                               [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                     if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame > 0) {
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber
@@ -668,7 +668,7 @@ namespace Map {
                 } else {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].seated = 1;
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field39_0x114c
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x114c
                               [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                     if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame > 0) {
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber
@@ -690,11 +690,11 @@ namespace Map {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 3;
                 if ((DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].fixedRng & 1) == 0) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field34_0x1014
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x1014
                               [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                 } else {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field33_0xfe4
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0xfe4
                               [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                 }
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -710,9 +710,9 @@ namespace Map {
                 }
             } else {
                 // standing up
-                DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field39_0x58 = 1;
+                DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x58 = 1;
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field40_0x11b0
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x11b0
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate = 0x66;
@@ -754,7 +754,7 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].seated = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 4;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x2ac = 10;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].SA = 1;
             if (DAT_GameCore::instance.gameMode_2 != OpenSHC::Game::GM_SKIRMISH_AND_MULTIPLAYER) {
                 MACRO_CALL_MEMBER(
@@ -763,11 +763,11 @@ namespace Map {
             }
             if ((DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].fixedRng & 1) == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field36_0x10a0
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x10a0
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field35_0x107c
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x107c
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -791,15 +791,15 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].seated = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationSpeed = 3;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x2ac = 10;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].SA = 1;
             if ((DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].fixedRng & 1) == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field34_0x1014
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x1014
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field33_0xfe4
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0xfe4
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -934,19 +934,19 @@ namespace Map {
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field42_0x11f8
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x11f8
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 1) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field41_0x11d4
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x11d4
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 2) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field42_0x11f8
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x11f8
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field43_0x1214
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x1214
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {

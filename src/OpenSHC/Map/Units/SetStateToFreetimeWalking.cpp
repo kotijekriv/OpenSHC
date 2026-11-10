@@ -1,6 +1,7 @@
 #include "../Units.func.hpp"
 
 #include "OpenSHC/Map/Units/States/UnitState.hpp"
+#include "OpenSHC/WindowsHelper/Enums/BOOLEnum.hpp"
 
 #include "OpenSHC/Globals/DAT_UnitsState.hpp"
 
@@ -8,11 +9,12 @@ namespace OpenSHC {
 namespace Map {
 
     using OpenSHC::Map::Units::States::UnitState;
+    using OpenSHC::WindowsHelper::Enums::BOOLEnum;
 
     // FUNCTION: STRONGHOLDCRUSADER 0x00530CF0
-    undefined4 Units::SetStateToFreetimeWalking(int unitID, int shouldFindNewGoodThing, int param_3)
+    BOOLEnum Units::SetStateToFreetimeWalking(int unitID, int shouldFindNewGoodThing, int param_3)
     {
-        if (DAT_UnitsState::instance.units[unitID].field166_0x2fe != 1) {
+        if (DAT_UnitsState::instance.units[unitID].field_0x2fe != 1) {
             return 0;
         }
         DAT_UnitsState::instance.units[unitID].idle += 1;

@@ -48,23 +48,23 @@ namespace Map {
                     DAT_UnitsState::instance.units[unitID].banked
                         = DAT_UnitsState::instance.units[unitID].idle - DAT_UnitsState::instance.units[unitID].target;
                 }
-                DAT_UnitsState::instance.units[unitID].field166_0x2fe = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x2fe = 0;
                 DAT_UnitsState::instance.units[unitID].state.generic
                     = DAT_UnitsState::instance.units[unitID].cachedState;
                 DAT_UnitsState::instance.units[unitID].destinationNeeded = (DestinationNeededEnum)2;
                 return TRUE;
             }
             if (DAT_UnitsState::instance.units[unitID].unitTypeSpecificRestingState > 0
-                && DAT_UnitsState::instance.units[unitID].field166_0x2fe == 0) {
+                && DAT_UnitsState::instance.units[unitID].field_0x2fe == 0) {
                 DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
                 DAT_UnitsState::instance.units[unitID].state.generic
                     = DAT_UnitsState::instance.units[unitID].unitTypeSpecificRestingState;
-                DAT_UnitsState::instance.units[unitID].field166_0x2fe = 1;
+                DAT_UnitsState::instance.units[unitID].field_0x2fe = 1;
                 return FALSE;
             }
             DAT_UnitsState::instance.units[unitID].destinationNeeded
                 = OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_NEEDED;
-            DAT_UnitsState::instance.units[unitID].field166_0x2fe = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x2fe = 0;
         }
         return TRUE;
     }

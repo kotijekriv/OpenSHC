@@ -16,6 +16,7 @@
 #include "OpenSHC/DE/SHCDE/eTextSections.hpp"
 #include "OpenSHC/Game/GameMode.hpp"
 #include "OpenSHC/Game/GameMode2.hpp"
+#include "OpenSHC/Game/Player/Enums/BuildingEntryInfoEnum.hpp"
 #include "OpenSHC/Map/MapType2.hpp"
 #include "OpenSHC/Map/Units/Pathfinding/DestinationNeededEnum.hpp"
 #include "OpenSHC/Map/Units/States/UnitState.hpp"
@@ -180,8 +181,13 @@ namespace Map {
                     int tower = MACRO_CALL_MEMBER(
                         OpenSHC::Map::Buildings::BuildingsState_Func::canNavigateToDefensiveBuilding,
                         DAT_BuildingsState::ptr)(owner,
-                        DAT_GameState::instance.playerDataArray[owner].campground.xEntry,
-                        DAT_GameState::instance.playerDataArray[owner].campground.yEntry - 1,
+                        DAT_GameState::instance.playerDataArray[owner]
+                            .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                            .xEntry,
+                        DAT_GameState::instance.playerDataArray[owner]
+                                .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                                .yEntry
+                            - 1,
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetID_OR_targetBuildingID);
                     if (tower == 0) {
                         return;
@@ -393,23 +399,23 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field310_0x5fbc
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x5fbc
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 1) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field311_0x5ff4
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x5ff4
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 2) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field312_0x603c
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x603c
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 3) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field313_0x6084
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x6084
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field314_0x60dc
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x60dc
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -517,7 +523,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field308_0x5f6c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x5f6c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
@@ -570,25 +576,31 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].movementSpeed = 1;
             if (DAT_UnitsState::instance.units[unitID].destinationNeeded
                 != OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_HAS_BEEN_SET) {
-                int keep = DAT_GameState::instance.playerDataArray[owner].keep.id;
+                int keep = DAT_GameState::instance.playerDataArray[owner]
+                               .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                               .id;
                 if (keep <= 0) {
                     DAT_UnitsState::instance.units[unitID].state.generic = (UnitState)13;
                     return;
                 }
                 int x = DAT_BuildingsState::instance.buildings[keep].someX + (SEC_RNG::instance.currentNumber2 & 3);
-                int y = (DAT_UnitsState::instance.units[unitID].field97_0xd0 + SEC_RNG::instance.currentNumber2 & 3)
+                int y = (DAT_UnitsState::instance.units[unitID].field_0xd0 + SEC_RNG::instance.currentNumber2 & 3)
                     + DAT_BuildingsState::instance.buildings[keep].someY;
                 if (MACRO_CALL_MEMBER(OpenSHC::Synchrony::GameSynchronyState_Func::isAIPlayer,
                         DAT_GameSynchronyState::ptr)(DAT_UnitsState::instance.units[unitID].owner)
                         != FALSE
-                    && DAT_UnitsState::instance.units[unitID].field97_0xd0 > 10) {
+                    && DAT_UnitsState::instance.units[unitID].field_0xd0 > 10) {
                     if (MACRO_CALL_MEMBER(
                             OpenSHC::Game::GameStateStructures_Func::checkKeepEnclosed, DAT_GameState::ptr)(owner)
                         == FALSE) {
                         if (DAT_GameState::instance.playerDataArray[owner].totalEnemyRangedTroopValue < 100
                             && DAT_GameState::instance.playerDataArray[owner].totalEnemyTroopValue < 200) {
-                            x = DAT_GameState::instance.playerDataArray[owner].campground.xEntry;
-                            y = DAT_GameState::instance.playerDataArray[owner].campground.yEntry;
+                            x = DAT_GameState::instance.playerDataArray[owner]
+                                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                                    .xEntry;
+                            y = DAT_GameState::instance.playerDataArray[owner]
+                                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                                    .yEntry;
                             int enemy = DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance]
                                             .lastEncounteredEnemyUnitIDUnk;
                             if (enemy != 0) {
@@ -604,8 +616,12 @@ namespace Map {
                             }
                         }
                     } else {
-                        x = DAT_GameState::instance.playerDataArray[owner].campground.xEntry;
-                        y = DAT_GameState::instance.playerDataArray[owner].campground.yEntry;
+                        x = DAT_GameState::instance.playerDataArray[owner]
+                                .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                                .xEntry;
+                        y = DAT_GameState::instance.playerDataArray[owner]
+                                .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_CAMPGROUND]
+                                .yEntry;
                     }
                 }
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::setDestinationForUnit, DAT_UnitsState::ptr)(
@@ -633,16 +649,21 @@ namespace Map {
             // waiting at the keep
             DAT_UnitsState::instance.units[unitID].animationSpeed = 2;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::setUnitFacingDirectionForTargetXandY,
-                DAT_UnitsState::ptr)(unitID, DAT_GameState::instance.playerDataArray[owner].keep.xEntry,
-                DAT_GameState::instance.playerDataArray[owner].keep.yEntry);
+            MACRO_CALL_MEMBER(
+                OpenSHC::Map::Units::UnitsState_Func::setUnitFacingDirectionForTargetXandY, DAT_UnitsState::ptr)(unitID,
+                DAT_GameState::instance.playerDataArray[owner]
+                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                    .xEntry,
+                DAT_GameState::instance.playerDataArray[owner]
+                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                    .yEntry);
             if (DAT_DirectionAlgorithmState::instance.orientation == 15) {
                 DAT_DirectionAlgorithmState::instance.orientation = 4;
             }
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].facingDirection
                 = (short)DAT_DirectionAlgorithmState::instance.orientation;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field309_0x5fa0
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x5fa0
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -678,11 +699,13 @@ namespace Map {
                 || DAT_GameState::instance.mapAndTime.field3172_0x27ac
                         + DAT_GameState::instance.mapAndTime.field3170_0x27a4
                     > 2) {
-                int keep = DAT_GameState::instance.playerDataArray[owner].keep.id;
+                int keep = DAT_GameState::instance.playerDataArray[owner]
+                               .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                               .id;
                 if (keep == 0) {
                     return;
                 }
-                if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field97_0xd0 > 10
+                if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0xd0 > 10
                     && MACRO_CALL_MEMBER(
                            OpenSHC::Game::GameStateStructures_Func::checkKeepEnclosed, DAT_GameState::ptr)(owner)
                         != FALSE) {
@@ -692,7 +715,7 @@ namespace Map {
                         = OpenSHC::Map::Units::States::US_IDLEUnk;
                     return;
                 }
-                if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field97_0xd0 > 10) {
+                if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0xd0 > 10) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].destinationNeeded
                         = OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_NEEDED;
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic = (UnitState)12;
@@ -766,16 +789,16 @@ namespace Map {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].attackAtTileY);
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field315_0x6124
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x6124
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 1
                 || DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 3) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field316_0x614c
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x614c
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].substate == 2) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field317_0x6170
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x6170
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -910,19 +933,19 @@ namespace Map {
                 if (DAT_UnitsState::instance.units[unitID].substate == 0) {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field315_0x6124[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x6124[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 } else if (DAT_UnitsState::instance.units[unitID].substate == 1) {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field316_0x614c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x614c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 } else if (DAT_UnitsState::instance.units[unitID].substate == 2) {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field317_0x6170[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x6170[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 } else if (DAT_UnitsState::instance.units[unitID].substate == 3) {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field316_0x614c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x614c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 }
                 if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                     DAT_UnitHasBecomeIdle::instance = 1;
@@ -1016,13 +1039,22 @@ namespace Map {
             // the player is defeated
             DAT_GameState::instance.playerDataArray[owner].lordKilledByPlayerID = 1;
             MACRO_CALL_MEMBER(OpenSHC::Audio::SFX::SFXState_Func::playSFXAtLocationFullVolume, DAT_SFXState::ptr)(
-                DAT_GameState::instance.playerDataArray[owner].keep.xEntry,
-                DAT_GameState::instance.playerDataArray[owner].keep.yEntry, 0xf4);
+                DAT_GameState::instance.playerDataArray[owner]
+                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                    .xEntry,
+                DAT_GameState::instance.playerDataArray[owner]
+                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                    .yEntry,
+                0xf4);
             DAT_GameState::instance.playerDataArray[owner].someKeepRelatedX2
-                = (short)DAT_GameState::instance.playerDataArray[owner].keep.xEntry;
+                = (short)DAT_GameState::instance.playerDataArray[owner]
+                      .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                      .xEntry;
             DAT_GameState::instance.playerDataArray[owner].commemorationShrinePlacementCountdown = 5;
             DAT_GameState::instance.playerDataArray[owner].someKeepRelatedY2
-                = (short)DAT_GameState::instance.playerDataArray[owner].keep.yEntry;
+                = (short)DAT_GameState::instance.playerDataArray[owner]
+                      .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                      .yEntry;
             MACRO_CALL_MEMBER(OpenSHC::Game::GameStateStructures_Func::destroyPlayerCompletely, DAT_GameState::ptr)(
                 owner);
             if (owner != DAT_GameSynchronyState::instance.currentPlayerSlotID) {
@@ -1070,7 +1102,7 @@ namespace Map {
                 DAT_GameState::instance.playerDataArray[owner].currentResources[15] += gold;
                 int looted = 0;
                 for (int i = 0; i < 20; ++i) {
-                    int resource = DAT_UnitPropertiesDefinedData::instance.field82_0x11c24[i];
+                    int resource = DAT_UnitPropertiesDefinedData::instance.field_0x11c24[i];
                     int amount = DAT_GameState::instance.playerDataArray[victim].currentResources[resource] * 25 / 100;
                     DAT_GameState::instance.playerDataArray[owner].startResources[resource] += amount;
                     looted += amount;
@@ -1112,7 +1144,7 @@ namespace Map {
         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x30_animRelated = 0;
         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
             = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                  .field18_0xb84[DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
+                  .field_0xb84[DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
         if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber = 0x2fc - spriteOffset;
             DAT_UnitHasBecomeIdle::instance = 1;

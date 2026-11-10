@@ -103,7 +103,7 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].facingDirection
                 = (short)DAT_DirectionAlgorithmState::instance.orientation;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field250_0x4b1c
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x4b1c
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].gfxNumber
@@ -117,14 +117,14 @@ namespace Map {
                     + 0xf9 + DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame * 8;
                 if (DAT_UnitHasBecomeIdle::instance == 0) {
                     if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].resourceToDeposit < 8
-                        || DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field279_0x3f2 != 0) {
+                        || DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x3f2 != 0) {
                         return;
                     }
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber = 0;
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.ox
                         = OpenSHC::Map::Units::States::USOS_RESET;
                     DAT_UnitHasBecomeIdle::instance = 0;
-                    DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field279_0x3f2 = 1;
+                    DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x3f2 = 1;
                     return;
                 }
             }
@@ -160,7 +160,7 @@ namespace Map {
         if (state == OpenSHC::Map::Units::States::USOS_WAITING) {
             DAT_UnitsState::instance.units[unitID].animationSheetFrameOffset = 1;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
-            DAT_UnitsState::instance.units[unitID].field279_0x3f2 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x3f2 = 0;
             if (DAT_UnitsState::instance.units[unitID].resourceToDeposit <= 0) {
                 if (MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::setWorkplaceBuildingEntryAsTarget,
                         DAT_UnitsState::ptr)(DAT_CurrentUnitSlotID::instance, 1)
@@ -274,7 +274,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field251_0x4bc4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4bc4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumber == 1
                 && DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE) {
                 MACRO_CALL_MEMBER(OpenSHC::Audio::SFX::SFXState_Func::playSFXAtLocation, DAT_SFXState::ptr)(

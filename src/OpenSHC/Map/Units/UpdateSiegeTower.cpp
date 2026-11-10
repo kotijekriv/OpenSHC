@@ -62,10 +62,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 99;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0x47;
@@ -73,10 +73,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x13;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0x47;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0x47;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0;
@@ -91,7 +91,7 @@ namespace Map {
         }
         if (state == OpenSHC::Map::Units::States::US_FIRE_WEAPONUnk) {
             // waiting for engineers to man the tower
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             if (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 0
                 || DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 6
@@ -99,10 +99,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 99;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0x47;
@@ -111,10 +111,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x13;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0x47;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0x47;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0;
@@ -277,17 +277,17 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 99;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0x47;
             } else {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x13;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0x47;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0x47;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0;
@@ -326,7 +326,7 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
                 DAT_UnitsState::instance.units[unitID].state.generic
                     = OpenSHC::Map::Units::States::US_DETERMINE_NEXT_STATEUnk;
-                DAT_UnitsState::instance.units[unitID].field248_0x3bc = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x3bc = 0;
                 DAT_UnitsState::instance.units[unitID].targetedBuildingTile = 0;
                 return;
             }
@@ -382,7 +382,7 @@ namespace Map {
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                 = OpenSHC::Map::Units::States::US_DETERMINE_NEXT_STATEUnk;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field248_0x3bc = 0;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x3bc = 0;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetingType
                 = OpenSHC::Map::Units::UIT_NO_INSTRUCTION_OR_MOVEUnk;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetedBuildingTile = 0;
@@ -393,17 +393,17 @@ namespace Map {
             // docking at the wall
             DAT_UnitsState::instance.units[unitID].animationSpeed = 5;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
             if (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 0
                 || DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 6
                 || DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 7) {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 99;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0x47;
@@ -411,10 +411,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x13;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0x47;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0x47;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 4) % 8 + 0x49;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0;
@@ -471,8 +471,8 @@ namespace Map {
                         != DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].manningEngineerUIDRef[i]) {
                         continue;
                     }
-                    DAT_UnitsState::instance.units[engineer].field249_0x3c0 = 0;
-                    DAT_UnitsState::instance.units[engineer].field248_0x3bc = 0;
+                    DAT_UnitsState::instance.units[engineer].field_0x3c0 = 0;
+                    DAT_UnitsState::instance.units[engineer].field_0x3bc = 0;
                     DAT_UnitsState::instance.units[engineer].animationCycleNumber = 0;
                     DAT_UnitsState::instance.units[engineer].state.generic
                         = OpenSHC::Map::Units::States::US_JESTER_ROAM_TO;
@@ -481,7 +481,7 @@ namespace Map {
                     DAT_UnitsState::instance.units[engineer].cachedState
                         = OpenSHC::Map::Units::States::US_DETERMINE_NEXT_STATEUnk;
                     DAT_UnitsState::instance.units[engineer].updateTickTracker = 0;
-                    DAT_UnitsState::instance.units[engineer].field39_0x58 = 1;
+                    DAT_UnitsState::instance.units[engineer].field_0x58 = 1;
                     DAT_UnitsState::instance.units[engineer].totalSizeOfPathPlan = 0;
                     DAT_UnitsState::instance.units[engineer].movementCooldown = 0;
                     int attempts = 0;
@@ -553,20 +553,20 @@ namespace Map {
         }
         if (state == (UnitState)9) {
             // docked
-            DAT_UnitsState::instance.units[unitID].field43_0x64 = 2;
+            DAT_UnitsState::instance.units[unitID].field_0x64 = 2;
             DAT_UnitsState::instance.units[unitID].animationSpeed = 5;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
             if (DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 0
                 || DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 6
                 || DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected == 7) {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 99;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected / 2 + 0x51;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = -0x33;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = -0x33;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = 0x47;
@@ -574,10 +574,10 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x13;
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
-                DAT_UnitsState::instance.units[unitID].field59_0x86 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x86 = 0;
                 DAT_UnitsState::instance.units[unitID].imageIDUnk
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 9;
-                DAT_UnitsState::instance.units[unitID].field60_0x88 = 0x47;
+                DAT_UnitsState::instance.units[unitID].field_0x88 = 0x47;
                 DAT_UnitsState::instance.units[unitID].imageID2
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected / 2 + 0x51;
                 DAT_UnitsState::instance.units[unitID].drawYOffset = -0x33;
@@ -597,7 +597,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 10000;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].gfxNumber = 0x55;
-            DAT_UnitsState::instance.units[unitID].field59_0x86 = 0x10;
+            DAT_UnitsState::instance.units[unitID].field_0x86 = 0x10;
             DAT_UnitsState::instance.units[unitID].imageIDUnk = 0;
             DAT_UnitsState::instance.units[unitID].imageID2 = 0;
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumber == 0

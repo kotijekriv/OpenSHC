@@ -70,7 +70,7 @@ namespace Map {
             return;
         }
         if (state == OpenSHC::Map::Units::States::US_FIRE_WEAPONUnk) {
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].gfxNumber
                 = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
@@ -264,7 +264,7 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
                 DAT_UnitsState::instance.units[unitID].state.generic
                     = OpenSHC::Map::Units::States::US_DETERMINE_NEXT_STATEUnk;
-                DAT_UnitsState::instance.units[unitID].field248_0x3bc = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x3bc = 0;
             }
             if (MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::stopUnitIfNextToTarget, DAT_UnitsState::ptr)(
                     unitID)
@@ -299,7 +299,7 @@ namespace Map {
                           .facingDirectionMapOrientationCorrected
                     + 9;
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field416_0x83a8
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x83a8
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame == 0
                     && DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance]
@@ -307,7 +307,7 @@ namespace Map {
                         != FALSE) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber = 0;
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field416_0x83a8[0];
+                        = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x83a8[0];
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber += 1;
                 }
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame == 10

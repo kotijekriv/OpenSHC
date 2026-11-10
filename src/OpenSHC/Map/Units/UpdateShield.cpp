@@ -53,7 +53,7 @@ namespace Map {
             return;
         }
         if (state == OpenSHC::Map::Units::States::US_FIRE_WEAPONUnk) {
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].gfxNumber
                 = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 1;
@@ -244,7 +244,7 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
                 DAT_UnitsState::instance.units[unitID].state.generic
                     = OpenSHC::Map::Units::States::US_DETERMINE_NEXT_STATEUnk;
-                DAT_UnitsState::instance.units[unitID].field248_0x3bc = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x3bc = 0;
                 if (DAT_GameSynchronyState::instance
                         .currentPlayerFullIDArray[DAT_UnitsState::instance.units[unitID].owner]
                     == -1) {

@@ -64,7 +64,7 @@ namespace Map {
             // at the quarry: fetch a block or load the ox
             DAT_UnitsState::instance.units[unitID].animationSheetFrameOffset = 1;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_UnitsState::instance.units[unitID].animationCycleNumber += 1;
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumber < 20) {
                 return;
@@ -125,11 +125,11 @@ namespace Map {
             // idling at the quarry
             DAT_UnitsState::instance.units[unitID].animationSpeed = 2;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 1;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field249_0x4ad4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4ad4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x18;
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -161,7 +161,7 @@ namespace Map {
             // loading a block at the stone pile
             DAT_UnitsState::instance.units[unitID].animationSheetFrameOffset = 1;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             if (DAT_BuildingsState::instance
                     .buildings[DAT_UnitsState::instance.units[unitID].targetID_OR_targetBuildingID]
                     .uid
@@ -203,8 +203,8 @@ namespace Map {
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                             = OpenSHC::Map::Units::States::US_MOVE_TO_DESTINATION;
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].resourceToDeposit = 1;
-                        if ((char)DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field300_0x410 > 0) {
-                            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field300_0x410 -= 1;
+                        if ((char)DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x410 > 0) {
+                            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x410 -= 1;
                         }
                     }
                 }
@@ -213,7 +213,7 @@ namespace Map {
                 return;
             }
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber = 0;
-            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field300_0x410 = 8;
+            DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].field_0x410 = 8;
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                 = OpenSHC::Map::Units::States::US_IDLEUnk;
             return;
@@ -246,7 +246,7 @@ namespace Map {
             // taking a block from the ox to the stockpile
             DAT_UnitsState::instance.units[unitID].animationSheetFrameOffset = 0x81;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_UnitsState::instance.units[unitID].animationCycleNumber += 1;
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumber < 5) {
                 return;
@@ -422,7 +422,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field220_0x41bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x41bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 0x131;
@@ -445,7 +445,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field248_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x118;
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -466,7 +466,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field248_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4ab0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x130;
                 DAT_UnitHasBecomeIdle::instance = 1;

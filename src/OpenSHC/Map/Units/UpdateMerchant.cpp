@@ -3,6 +3,7 @@
 #include "OpenSHC/Game/GameStateStructures.func.hpp"
 #include "OpenSHC/Map/Buildings/BuildingsState.func.hpp"
 #include "OpenSHC/Map/Units/UnitsState.func.hpp"
+#include "OpenSHC/Game/Player/Enums/BuildingEntryInfoEnum.hpp"
 #include "OpenSHC/Map/Units/Pathfinding/DestinationNeededEnum.hpp"
 #include "OpenSHC/Map/Units/States/UnitState.hpp"
 #include "OpenSHC/Map/Units/UnitLogicState.hpp"
@@ -33,7 +34,8 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
             int marketplace
                 = DAT_GameState::instance.playerDataArray[DAT_GameState::instance.mapAndTime.traderVisitsPlayer]
-                      .marketplace.id;
+                      .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_MARKETPLACE]
+                      .id;
             if (MACRO_CALL_MEMBER(OpenSHC::Map::Buildings::BuildingsState_Func::buildingIsAccessible,
                     DAT_BuildingsState::ptr)(marketplace, 1)
                 != 0) {

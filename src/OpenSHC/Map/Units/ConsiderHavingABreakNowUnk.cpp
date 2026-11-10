@@ -31,7 +31,7 @@ namespace Map {
             }
             DAT_UnitsState::instance.units[unitID].cachedState = (short)nextUnitState;
             DAT_UnitsState::instance.units[unitID].idle = DAT_UnitsState::instance.units[unitID].banked;
-            DAT_UnitsState::instance.units[unitID].field166_0x2fe = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x2fe = 0;
             // resting
             DAT_UnitsState::instance.units[unitID].state.generic = (UnitState)121;
             return TRUE;

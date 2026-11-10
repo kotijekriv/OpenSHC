@@ -1,6 +1,7 @@
 #include "../Units.func.hpp"
 
 #include "OpenSHC/Game/GameMode2.hpp"
+#include "OpenSHC/Game/Player/Enums/BuildingEntryInfoEnum.hpp"
 #include "OpenSHC/Map/MapType2.hpp"
 
 #include "OpenSHC/Globals/DAT_GameCore.hpp"
@@ -18,7 +19,10 @@ namespace Map {
             return 1;
         }
         for (int playerID = 2; playerID < 6; ++playerID) {
-            if (DAT_GameState::instance.playerDataArray[playerID].keep.id > 0) {
+            if (DAT_GameState::instance.playerDataArray[playerID]
+                    .buildingEntryInfos[OpenSHC::Game::Player::Enums::BEIE_KEEP]
+                    .id
+                > 0) {
                 return playerID;
             }
         }

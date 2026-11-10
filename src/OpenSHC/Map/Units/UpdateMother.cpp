@@ -48,7 +48,7 @@ namespace Map {
         int owner = DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].owner;
         DAT_GameState::instance.playerDataArray[owner].someCount02 += 1;
         DAT_GameState::instance.playerDataArray[owner].nonInteractiveCitizenCountUnk += 1;
-        if (DAT_UnitsState::instance.units[unitID].field280_0x3f4 > 1) {
+        if (DAT_UnitsState::instance.units[unitID].field_0x3f4 > 1) {
             DAT_UnitsState::instance.units[unitID].state.generic = OpenSHC::Map::Units::States::US_DISAPPEAR;
         }
         if (DAT_GameState::instance.playerDataArray[owner].someCount03
@@ -435,7 +435,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 3;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field387_0x7c4c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x7c4c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame == 2
                 && DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE) {
                 if ((SEC_RNG::instance.currentNumber2 & 1) != 0 && timeGetTime() - DWORD_00ee104c::instance > 8000) {
@@ -472,7 +472,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 3;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field388_0x7c94[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x7c94[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
             } else {

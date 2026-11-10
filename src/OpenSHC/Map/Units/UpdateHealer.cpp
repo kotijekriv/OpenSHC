@@ -34,7 +34,7 @@ namespace Map {
         int owner = DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].owner;
         DAT_GameState::instance.playerDataArray[owner].healerCount += 1;
         DAT_UnitsState::instance.units[unitID].stateBasedSpeed = 0;
-        if (DAT_UnitsState::instance.units[unitID].field280_0x3f4 > 1) {
+        if (DAT_UnitsState::instance.units[unitID].field_0x3f4 > 1) {
             DAT_UnitsState::instance.units[unitID].state.generic = OpenSHC::Map::Units::States::US_DISAPPEAR;
         }
         UnitStateShort state = DAT_UnitsState::instance.units[unitID].state.generic;
@@ -61,8 +61,9 @@ namespace Map {
             // returning to the apothecary
             if (DAT_UnitsState::instance.units[unitID].destinationNeeded
                 != OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_HAS_BEEN_SET) {
-                int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
-                    DAT_EntityState::ptr)(unitID);
+                int cloud
+                    = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                        DAT_EntityState::ptr)(unitID);
                 if (cloud == 0) {
                     MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::setDestinationForUnit, DAT_UnitsState::ptr)(
                         DAT_CurrentUnitSlotID::instance,
@@ -88,8 +89,9 @@ namespace Map {
                     != FALSE
                 && DAT_UnitsState::instance.units[unitID].destinationNeeded
                     == OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_HAS_BEEN_SET) {
-                int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
-                    DAT_EntityState::ptr)(unitID);
+                int cloud
+                    = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                        DAT_EntityState::ptr)(unitID);
                 if (cloud != 0) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                         = OpenSHC::Map::Units::States::US_AIM_WEAPONUnk;
@@ -116,7 +118,7 @@ namespace Map {
             }
             // stop walking every 8 ticks when a plague cloud is near
             if (DAT_GameState::instance.mapAndTime.totalGameTicksUnk % 8 == 0
-                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
+                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
                        DAT_EntityState::ptr)(unitID)
                     != 0) {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::makeUnitStopWalkingByClearingPathProgressState,
@@ -134,8 +136,9 @@ namespace Map {
                 if (DAT_UnitsState::instance.units[unitID].updateTickTracker % 10 != 0) {
                     return;
                 }
-                int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
-                    DAT_EntityState::ptr)(unitID);
+                int cloud
+                    = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                        DAT_EntityState::ptr)(unitID);
                 if (cloud == 0) {
                     return;
                 }
@@ -160,8 +163,8 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown = 32;
             DAT_UnitsState::instance.units[unitID].engineerManningSiegeStateRef_checkType = 0xfe;
             DAT_UnitsState::instance.units[unitID].substate = 0;
-            int cloud = MACRO_CALL_MEMBER(
-                OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1, DAT_EntityState::ptr)(unitID);
+            int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                DAT_EntityState::ptr)(unitID);
             if (cloud != 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].cachedState
                     = OpenSHC::Map::Units::States::US_AIM_WEAPONUnk;
@@ -214,8 +217,9 @@ namespace Map {
             if (MACRO_CALL_MEMBER(
                     OpenSHC::Map::Units::UnitsState_Func::hasTunnelerNotFinishedDigging, DAT_UnitsState::ptr)(unitID)
                 != FALSE) {
-                int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
-                    DAT_EntityState::ptr)(unitID);
+                int cloud
+                    = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                        DAT_EntityState::ptr)(unitID);
                 if (cloud != 0) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                         = OpenSHC::Map::Units::States::US_AIM_WEAPONUnk;
@@ -241,7 +245,7 @@ namespace Map {
                 return;
             }
             if (DAT_GameState::instance.mapAndTime.totalGameTicksUnk % 8 == 0
-                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
+                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
                        DAT_EntityState::ptr)(unitID)
                     != 0) {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::makeUnitStopWalkingByClearingPathProgressState,
@@ -275,8 +279,9 @@ namespace Map {
                 && DAT_UnitsState::instance.units[unitID].destinationNeeded
                     == OpenSHC::Map::Units::Pathfinding::DNE_DESTINATION_HAS_BEEN_SET) {
                 DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
-                int cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
-                    DAT_EntityState::ptr)(unitID);
+                int cloud
+                    = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
+                        DAT_EntityState::ptr)(unitID);
                 if (cloud != 0) {
                     DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].state.generic
                         = OpenSHC::Map::Units::States::US_AIM_WEAPONUnk;
@@ -308,7 +313,7 @@ namespace Map {
                         OpenSHC::Map::Buildings::BuildingsState_Func::findNextBuildingIDForOwnerAndType,
                         DAT_BuildingsState::ptr)(owner, OpenSHC::Map::Buildings::BT_GARDEN,
                         DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetID_OR_targetBuildingID);
-                cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
+                cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
                     DAT_EntityState::ptr)(DAT_CurrentUnitSlotID::instance);
                 if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].targetID_OR_targetBuildingID == 0
                     || cloud != 0) {
@@ -320,7 +325,7 @@ namespace Map {
                 return;
             }
             if (DAT_GameState::instance.mapAndTime.totalGameTicksUnk % 8 == 0
-                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
+                && MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
                        DAT_EntityState::ptr)(unitID)
                     != 0) {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::makeUnitStopWalkingByClearingPathProgressState,
@@ -365,7 +370,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 4;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field408_0x8208[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x8208[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
             } else {
@@ -389,8 +394,8 @@ namespace Map {
             }
             MACRO_CALL_MEMBER(
                 OpenSHC::Map::Entities::EntityState_Func::refreshPoisonCloudNearUnit, DAT_EntityState::ptr)(unitID);
-            DAT_GameState::instance.playerDataArray[owner].someCount60 += 2;
-            cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::somethingWithSeparateAreas1,
+            DAT_GameState::instance.playerDataArray[owner].eventPlagueHealerActivity += 2;
+            cloud = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::findNearestDiseaseCloudForHealer,
                 DAT_EntityState::ptr)(DAT_CurrentUnitSlotID::instance);
             if (cloud == 0) {
                 return;
@@ -439,7 +444,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field406_0x816c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x816c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x118;
                 DAT_UnitsState::instance.units[unitID].logicalState = OpenSHC::Map::Units::ULS_REMOVE;
@@ -461,7 +466,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field407_0x81bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x81bc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x130;
                 DAT_UnitsState::instance.units[unitID].logicalState = OpenSHC::Map::Units::ULS_REMOVE;

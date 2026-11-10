@@ -38,7 +38,7 @@ namespace Map {
             return;
         }
         DAT_UnitsState::instance.units[unitID].animationSpeed = 1;
-        DAT_UnitsState::instance.units[unitID].field39_0x58 = 0;
+        DAT_UnitsState::instance.units[unitID].field_0x58 = 0;
         if (variation == 4) {
             short facingDirection = DAT_UnitsState::instance.units[unitID].facingDirection;
             if (DAT_UnitsState::instance.units[unitID].targetingType == OpenSHC::Map::Units::UIT_ATTACK_BUILDING) {
@@ -142,7 +142,7 @@ namespace Map {
         if (DAT_UnitsState::instance.units[unitID].animationFrame == 27
             && DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE) {
             int target = DAT_UnitsState::instance.units[unitID].shootTargetedUnit;
-            DAT_UnitsState::instance.units[unitID].field298_0x40e = false;
+            DAT_UnitsState::instance.units[unitID].field_0x40e = false;
             if (target > -1) {
                 int distance = MACRO_CALL_MEMBER(OpenSHC::Map::Entities::EntityState_Func::arrowShootingRelated,
                     DAT_EntityState::ptr)(DAT_UnitsState::instance.units[unitID].microXPosition,
@@ -180,7 +180,7 @@ namespace Map {
                     MACRO_CALL_MEMBER(OpenSHC::Audio::SFX::SFXState_Func::playSFXAtLocation, DAT_SFXState::ptr)(
                         DAT_UnitsState::instance.units[unitID].x, DAT_UnitsState::instance.units[unitID].y,
                         OpenSHC::DE::SHCDE::FX_ARROW_FIRE);
-                    DAT_UnitsState::instance.units[unitID].field283_0x3f8 = 0;
+                    DAT_UnitsState::instance.units[unitID].field_0x3f8 = 0;
                 }
             } else {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::prepareProjectileTarget, DAT_UnitsState::ptr)(
@@ -193,7 +193,7 @@ namespace Map {
                 MACRO_CALL_MEMBER(OpenSHC::Audio::SFX::SFXState_Func::playSFXAtLocation, DAT_SFXState::ptr)(
                     DAT_UnitsState::instance.units[unitID].x, DAT_UnitsState::instance.units[unitID].y,
                     OpenSHC::DE::SHCDE::FX_ARROW_FIRE);
-                DAT_UnitsState::instance.units[unitID].field283_0x3f8 = 0;
+                DAT_UnitsState::instance.units[unitID].field_0x3f8 = 0;
             }
         }
         if (DAT_UnitsState::instance.units[unitID].animationFrame > 0) {

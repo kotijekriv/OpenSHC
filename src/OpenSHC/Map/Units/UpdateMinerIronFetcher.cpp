@@ -225,11 +225,11 @@ namespace Map {
             if ((unitID & 1) == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field295_0x5ce4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5ce4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field294_0x5c94[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5c94[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x81;

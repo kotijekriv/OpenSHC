@@ -78,7 +78,7 @@ namespace Map {
             }
             DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown
                 = DAT_UnitPropertiesDefinedData::instance
-                      .field81_0x11a6c[DAT_UnitsState::instance.units[unitID].updateTickTracker]
+                      .field_0x11a6c[DAT_UnitsState::instance.units[unitID].updateTickTracker]
                 + 22;
             if ((char)DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown > 32) {
                 DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown = 32;

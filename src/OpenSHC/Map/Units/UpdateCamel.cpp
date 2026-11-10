@@ -58,7 +58,7 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].animationSpeed = 2;
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field365_0x73c4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x73c4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 if (DAT_UnitsState::instance.units[unitID].animationFrame > 0) {
                     DAT_UnitsState::instance.units[unitID].gfxNumber
                         = DAT_UnitsState::instance.units[unitID].animationFrame + 0xc0;
@@ -94,30 +94,30 @@ namespace Map {
         if (state == (UnitState)0xcd) {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationSpeed = 6;
-            DAT_UnitsState::instance.units[unitID].field250_0x3c2 = 0;
+            DAT_UnitsState::instance.units[unitID].field_0x3c2 = 0;
             DAT_UnitsState::instance.units[unitID].updateTickTracker
                 = (short)((int)(DAT_UnitsState::instance.units[unitID].fixedRng + DAT_GameCore::instance.mapTimeInTicks)
                     % 20);
             if (DAT_UnitsState::instance.units[unitID].seated == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field364_0x7398[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7398[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field366_0x73f4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x73f4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 1) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field367_0x7464[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7464[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 2) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field368_0x74b4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x74b4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field369_0x7524[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7524[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -149,7 +149,7 @@ namespace Map {
             }
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field13_0x99c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x99c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame > 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber
                     = DAT_UnitsState::instance.units[unitID].animationFrame + 0xe1;
@@ -168,7 +168,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field10_0x88c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x88c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame == 17
                 && DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE) {
                 MACRO_CALL_MEMBER(OpenSHC::Audio::SFX::SFXState_Func::playSFXAtLocation, DAT_SFXState::ptr)(

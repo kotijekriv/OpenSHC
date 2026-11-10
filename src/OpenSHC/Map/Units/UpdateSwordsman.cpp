@@ -185,7 +185,7 @@ namespace Map {
                 DAT_UnitsState::ptr)(unitID, DAT_UnitsState::instance.units[unitID].attackAtTileX,
                 DAT_UnitsState::instance.units[unitID].attackAtTileY);
             DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field104_0x1e7c
+                = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x1e7c
                       [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -322,7 +322,7 @@ namespace Map {
             if (DAT_UnitsState::instance.units[unitID].substate == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field104_0x1e7c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1e7c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                     DAT_UnitHasBecomeIdle::instance = 1;
                 } else {
@@ -392,7 +392,7 @@ namespace Map {
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field105_0x1ea0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1ea0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                     DAT_UnitHasBecomeIdle::instance = 1;
                 } else {
@@ -464,7 +464,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].seated = 0;
             DAT_UnitsState::instance.units[unitID].animationSpeed = 4;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 10;
             DAT_UnitsState::instance.units[unitID].SA = 1;
             if (DAT_GameCore::instance.gameMode_2 != OpenSHC::Game::GM_SKIRMISH_AND_MULTIPLAYER) {
                 MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::setUnitFacingDirectionBasedOnBuilding,
@@ -472,11 +472,11 @@ namespace Map {
             }
             if ((DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].fixedRng & 1) == 0) {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field110_0x2058
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x2058
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame
-                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field110_0x2058
+                    = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp.field_0x2058
                           [DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[DAT_CurrentUnitSlotID::instance].animationFrame <= 0) {
@@ -497,25 +497,25 @@ namespace Map {
         case OpenSHC::Map::Units::States::US_IDLEUnk: {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 5;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 10;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 10;
             int variant = unitID & 3;
             DAT_UnitsState::instance.units[unitID].SA = 1;
             if (variant == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field106_0x1ec4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1ec4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (variant == 1) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field107_0x1f3c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1f3c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (variant == 2) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field108_0x1f84[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1f84[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field109_0x1fec[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x1fec[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE && variant > 2) {
                 // drawing and sheathing the sword

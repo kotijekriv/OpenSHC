@@ -58,13 +58,13 @@ namespace Map {
         if (state == OpenSHC::Map::Units::States::US_IDLEUnk) {
             DAT_UnitsState::instance.units[unitID].animationSpeed = 2;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
-            DAT_UnitsState::instance.units[unitID].field39_0x58 = 1;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x58 = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_BuildingsState::instance.buildings[workplace]
                 .workers[DAT_UnitsState::instance.units[unitID].workerIndex] = (short)unitID;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field262_0x4f74[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x4f74[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x301;
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -168,7 +168,7 @@ namespace Map {
         if (state == OpenSHC::Map::Units::States::US_RELOAD_WEAPONUnk) {
             DAT_UnitsState::instance.units[unitID].animationSheetFrameOffset = 0x4f1;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
-            DAT_UnitsState::instance.units[unitID].field131_0x2ac = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x2ac = 1;
             DAT_UnitsState::instance.units[unitID].updateTickTracker += 1;
             if (DAT_UnitsState::instance.units[unitID].updateTickTracker <= 10) {
                 return;

@@ -56,15 +56,15 @@ namespace Map {
             if (DAT_UnitsState::instance.units[unitID].substate == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field286_0x5a70[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5a70[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 1) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field287_0x5aa4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5aa4[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 2) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field288_0x5b10[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x5b10[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
@@ -213,7 +213,7 @@ namespace Map {
                 return;
             }
             DAT_BuildingsState::instance.buildings[DAT_UnitsState::instance.units[unitID].workplaceBuildingID_1]
-                .field165_0x28a = 300;
+                .field_0x28a = 300;
             int storage = MACRO_CALL_MEMBER(
                 OpenSHC::Map::Buildings::BuildingsState_Func::getStorageBuildingForResourceTypeAndAmount,
                 DAT_BuildingsState::ptr)(
@@ -250,7 +250,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].gfxNumber = 1;
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0x10;
             DAT_BuildingsState::instance.buildings[DAT_UnitsState::instance.units[unitID].workplaceBuildingID_1]
-                .field165_0x28a = 300;
+                .field_0x28a = 300;
             if (DAT_BuildingsState::instance.buildings[DAT_UnitsState::instance.units[unitID].workplaceBuildingID_1]
                     .flagonsOfAleOrCheeseOrReleaseDogs
                 <= 0) {

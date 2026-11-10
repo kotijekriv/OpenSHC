@@ -69,7 +69,7 @@ namespace Map {
             if (DAT_UnitsState::instance.units[unitID]
                     .digTileX__OR__countCurrentlyManningEnginers__OR__forCowsRandomBelow300
                 == 0) {
-                DAT_GameState::instance.playerDataArray[owner].counter -= 1;
+                DAT_GameState::instance.playerDataArray[owner].availableCows -= 1;
                 DAT_UnitsState::instance.units[unitID].state.generic = OpenSHC::Map::Units::States::US_DISAPPEAR;
             }
         }
@@ -90,23 +90,23 @@ namespace Map {
                 }
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field325_0x641c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x641c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 0x65) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field326_0x6440[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x6440[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 0x6a) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field327_0x646c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x646c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 0x66) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field328_0x64fc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x64fc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 0x67) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field329_0x657c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x657c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
@@ -180,7 +180,7 @@ namespace Map {
             }
             MACRO_CALL_MEMBER(OpenSHC::Map::Units::UnitsState_Func::makeUnitStopWalkingByClearingPathProgressState,
                 DAT_UnitsState::ptr)(unitID);
-            DAT_GameState::instance.playerDataArray[owner].counter -= 1;
+            DAT_GameState::instance.playerDataArray[owner].availableCows -= 1;
             DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
             DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown = 0;
             DAT_UnitsState::instance.units[unitID].state.generic = OpenSHC::Map::Units::States::US_DISAPPEAR;
@@ -233,7 +233,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].stateBasedSpeed = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field330_0x66cc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x66cc[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitHasBecomeIdle::instance = 1;
             } else {
@@ -256,7 +256,7 @@ namespace Map {
             if (DAT_UnitHasBecomeIdle::instance == 0) {
                 return;
             }
-            DAT_GameState::instance.playerDataArray[owner].counter -= 1;
+            DAT_GameState::instance.playerDataArray[owner].availableCows -= 1;
             DAT_UnitsState::instance.units[unitID].animationCycleNumber = 0;
             DAT_UnitsState::instance.units[unitID].disappearFadeAlphaCountdown = 0;
             DAT_UnitsState::instance.units[unitID].state.generic = OpenSHC::Map::Units::States::US_DISAPPEAR;

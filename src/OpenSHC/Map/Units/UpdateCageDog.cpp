@@ -149,17 +149,17 @@ namespace Map {
                 DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
                 DAT_UnitsState::instance.units[unitID].animationSpeed
                     = (DAT_UnitsState::instance.units[unitID].fixedRng & 7) + 1;
-                if (DAT_UnitsState::instance.units[unitID].field250_0x3c2 == 0) {
+                if (DAT_UnitsState::instance.units[unitID].field_0x3c2 == 0) {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field346_0x6d98[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x6d98[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 } else {
                     DAT_UnitsState::instance.units[unitID].animationFrame
                         = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                              .field347_0x6db8[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                              .field_0x6db8[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
                 }
                 if (DAT_UnitsState::instance.units[unitID].animationFrame > 0) {
-                    if (DAT_UnitsState::instance.units[unitID].field250_0x3c2 == 0) {
+                    if (DAT_UnitsState::instance.units[unitID].field_0x3c2 == 0) {
                         DAT_UnitsState::instance.units[unitID].gfxNumber
                             = DAT_UnitsState::instance.units[unitID].facingDirectionMapOrientationCorrected + 0x2b0
                             + DAT_UnitsState::instance.units[unitID].animationFrame * 8;
@@ -266,23 +266,23 @@ namespace Map {
             if (DAT_UnitsState::instance.units[unitID].substate == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field350_0x7060[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7060[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 1) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field351_0x7078[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7078[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 2) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field352_0x7098[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7098[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else if (DAT_UnitsState::instance.units[unitID].substate == 3) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field353_0x70c0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x70c0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field354_0x70e0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x70e0[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationCycleNumber == 1
                 && DAT_UnitsState::instance.units[unitID].animationCycleNumberHasJustIncremented != FALSE) {
@@ -340,15 +340,15 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationSpeed = 4;
             DAT_UnitsState::instance.units[unitID].gfxNumber = 0x278;
-            DAT_UnitsState::instance.units[unitID].field250_0x3c2 = 1;
+            DAT_UnitsState::instance.units[unitID].field_0x3c2 = 1;
             if (DAT_UnitsState::instance.units[unitID].seated == 0) {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field345_0x6d7c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x6d7c[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             } else {
                 DAT_UnitsState::instance.units[unitID].animationFrame
                     = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                          .field355_0x7134[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                          .field_0x7134[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             }
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber
@@ -403,7 +403,7 @@ namespace Map {
             DAT_UnitsState::instance.units[unitID].field_0x30_animRelated = 0;
             DAT_UnitsState::instance.units[unitID].animationFrame
                 = (char)DAT_UnitPropertiesDefinedData::instance.Frames_Shared_UnitClimbingUp
-                      .field341_0x6c64[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
+                      .field_0x6c64[DAT_UnitsState::instance.units[unitID].animationCycleNumber];
             if (DAT_UnitsState::instance.units[unitID].animationFrame <= 0) {
                 DAT_UnitsState::instance.units[unitID].gfxNumber = 0x340;
                 DAT_UnitsState::instance.units[unitID].state.generic = (UnitState)117;
