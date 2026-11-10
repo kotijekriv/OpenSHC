@@ -136,7 +136,7 @@ namespace Map {
 
             uint commitUnitPathPlanUsingWalkLayer(uint param_1, int param_2, int param_3);
 
-            BOOLEnum updateSeparateAreaTileMap(int forceUpdate);
+            BOOLEnum updateSeparateAreaTileMap(BOOLEnum forceUpdate);
 
             BOOLEnum updatePathLinkageLayerBasedOnBuildingsUnk(int yUnk, int tile);
 
@@ -203,7 +203,7 @@ namespace Map {
 
             void updateAIZoneWithFloodFill0x20(int max, uint x, uint y);
 
-            BOOLEnum findAIZoneWithFlags(int maxDistance, uint x, uint y, undefined4 aiInfoFlags);
+            BOOLEnum findAIZoneWithFlags(int maxDistance, uint x, uint y, byte aiInfoFlags);
 
             int findArcherRelatedAttackInfoIndex(int max, uint x, uint y, int tribeID);
 
