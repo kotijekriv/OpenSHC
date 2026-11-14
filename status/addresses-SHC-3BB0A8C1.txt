@@ -23545,7 +23545,7 @@ SHC_3BB0A8C1_0x00492FC0 | 0.0% | Pending
 
 SHC_3BB0A8C1_0x00492FC4 | 0.0% | Pending
 
-SHC_3BB0A8C1_0x00492FD0 | 0.0% | Pending
+SHC_3BB0A8C1_0x00492FD0 | 100.0% | Reimplemented
 
 SHC_3BB0A8C1_0x00493050 | 100.0% | Reimplemented, Security Cookie mismatches
 
